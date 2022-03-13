@@ -6,9 +6,21 @@ const server = http.createServer((req, res) => {
 
   //Set header content type
   res.setHeader('Content-Type', 'text/html');
+  let path = './views/';
+  switch (req.url) {
+    case '/':
+      path += 'index.html';
+      break;
+    case '/about':
+      path += 'about.html';
+      break;
+    default:
+      path += '404.html';
+      break;
+  }
 
   // send and html file
-  fs.readFile('./views/index.html', (err, result) => {
+  fs.readFile(path, (err, result) => {
     if (err) {
       console.log(err);
     } //res.write(result); // If we're only sending one thing into res.write, then we don't actually need this line of code here, we can put it directly into res.send method instead. If we were writing multiple things we might use res.write one after the other
