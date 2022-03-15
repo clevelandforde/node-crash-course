@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs')%>
+  <body>
+    <%- include('./partials/navs.ejs')%>
+    <div class="create-registration content">
+      <form action="">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" required />
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" required />
+        <label for="rank">Rank</label>
+        <input type="text" id="rank" required />
+        <label for="regimentNo">Regiment Number</label>
+        <input type="number" id="regimentNo" required />
+        <button>Submit</button>
+      </form>
+    </div>
+    <%- include('./partials/footer.ejs')%>
+  </body>
+</html>
