@@ -1,4 +1,5 @@
 const express = require('express');
+const morgan = require('morgan');
 
 // express app
 const app = express();
@@ -10,6 +11,10 @@ app.set('view engine', 'ejs');
 app.listen(3000, () => {
   console.log('listening on port 3000 through express');
 });
+
+// middleware and static files
+app.use(express.static('public'));
+app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
   //   res.sendFile('./views/index.html', { root: __dirname }); // We no longer need the line with res.sendFile since we are now using ejs. If we just replace .html with .ejs then it will take us to downloads for us to do a save. At this 15th day of March 2022 I cannot explain why it takes me to my download folder, I will explain that as soon as i understand. Henceforth, we need res.render(path) seen below, to render a view and send it back to the browser.
