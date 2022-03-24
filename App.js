@@ -17,53 +17,9 @@ mongoose
 // register view engine
 app.set('view engine', 'ejs');
 
-// listening for request
-// app.listen(3000, () => {
-//   console.log('listening on port 3000 through express');
-// });
-
 // middleware and static files
 app.use(express.static('public'));
 app.use(morgan('dev'));
-
-// // mongodb and mongoose sandbox routes
-// app.get('/add-user', (req, res) => {
-//   const registration = new Registration({
-//     lastName: 'Forde',
-//     firstName: 'Isaac',
-//     idNo: '973497469890489',
-//     rank: 'CIV',
-//     regimentNo: '304075',
-//   });
-//   registration
-//     .save()
-//     .then((result) => {
-//       res.send(result);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
-
-// app.get('/all-users', (req, res) => {
-//   Registration.find()
-//     .then((result) => {
-//       res.send(result);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
-
-// app.get('/single-user', (req, res) => {
-//   Registration.findById('6237db881ee92cfe2dde1ca2')
-//     .then((result) => {
-//       res.send(result);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
 
 // routes (basic)
 app.get('/', (req, res) => {
