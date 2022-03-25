@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Registration = require('./models/registration');
+const { result } = require('lodash');
 
 // express app
 const app = express();
@@ -18,7 +19,9 @@ mongoose
 app.set('view engine', 'ejs');
 
 // middleware and static files
+app.use(express.json());
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 // routes (basic)
@@ -39,6 +42,38 @@ app.get('/registrations', (req, res) => {
   Registration.find()
     .then((result) => {
       res.render('index', { title: 'All Users', registrations: result });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.post('/registrations', (req, res) => {
+  // console.log(req.body);
+  const registration = new Registration(req.body);
+
+  registration
+    .save()
+    .then((result) => {
+      res.redirect('/registrations');
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.get('/registration/:id', (req, res) => {
+  const id = req.params.id;
+  // console.log(id);
+  Registration.findById(id)
+    .then((result) => {
+      res.render('details', {
+        registration: result,
+        title: 'Single user',
+      });
+      // console.log(req.body);
+      // console.log(req.result);
+      // console.log(registration.title);
     })
     .catch((err) => {
       console.log(err);

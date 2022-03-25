@@ -4,15 +4,17 @@
   <body>
     <%- include('./partials/navs.ejs')%>
     <div class="create-registration content">
-      <form action="">
+      <form action="/registrations" method="POST">
         <label for="firstName">First Name</label>
-        <input type="text" id="firstName" required />
+        <input type="text" id="firstName" name="firstName" required />
         <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" required />
+        <input type="text" id="lastName" name="lastName" required />
+        <label for="idNo">National ID</label>
+        <input type="text" id="idNo" name="idNo" required />
         <label for="rank">Rank</label>
-        <input type="text" id="rank" required />
+        <input type="text" id="rank" name="rank" required />
         <label for="regimentNo">Regiment Number</label>
-        <input type="text" id="regimentNo" required />
+        <input type="text" id="regimentNo" name="regimentNo" required />
         <button>Submit</button>
       </form>
     </div>

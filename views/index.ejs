@@ -8,11 +8,13 @@
       <h2>All Registrations</h2>
       <% if ( registrations.length > 0 ) {%>
       <%registrations.forEach(registration => {%>
-      <h3 class="title"><%=registration.lastName%></h3>
-      <p class="snippet"><%=registration.firstName%></p>
-      <p class="snippet"><%=registration.idNo%></p>
+      <a href="/registration/<%=registration.id%>" class="single">
+        <h3 class="title"><%=registration.lastName%></h3>
+        <p class="snippet"><%=registration.firstName%></p>
+      </a>
+      <!-- <p class="snippet"><%=registration.idNo%></p>
       <p class="snippet"><%=registration.rank%></p>
-      <p class="snippet"><%=registration.regimentNo%></p>
+      <p class="snippet"><%=registration.regimentNo%></p> -->
 
       <% }); %> <%}%>
     </div>

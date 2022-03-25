@@ -82,3 +82,20 @@ h3 {
   font-size: 1.2em;
   cursor: pointer;
 }
+
+/* index styles */
+.registrations a {
+  display: block;
+  margin: 40px 0;
+  padding-left: 30px;
+  border-left: 6px solid crimson;
+}
+
+.registrations a:hover h3 {
+  color: rgb(5, 141, 34);
+}
+
+/* details styles */
+.details h2 {
+  color: rgb(3, 104, 3);
+}

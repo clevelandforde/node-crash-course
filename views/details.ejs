@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs')%>
+
+  <body>
+    <%- include('./partials/navs.ejs') %>
+    <div class="details content">
+      <h2><%= registration.firstName%> <%= registration.lastName%></h2>
+      <div class="content">
+        <p><b>National ID:</b> <%=registration.idNo%></p>
+        <p><b>Rank:</b> <%=registration.rank%></p>
+        <p><b>Regiment No:</b> <%=registration.regimentNo%></p>
+      </div>
+    </div>
+  </body>
+  <%- include('./partials/footer.ejs')%>
+</html>
